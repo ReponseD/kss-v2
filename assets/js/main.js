@@ -97,5 +97,13 @@
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
     
+    // Dropdown functionality
+    $(document).ready(function () {
+        $('.navbar-toggler').on('click', function () {
+            var target = $(this).data('bs-target');
+            $(target).collapse('toggle');
+        });
+    });
+    
 })(jQuery);
 
