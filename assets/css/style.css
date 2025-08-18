@@ -624,3 +624,29 @@ p{
         50% { border-color: transparent; }
       }
 }
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+    .navbar .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .portfolio-item img {
+        max-height: 200px;
+    }
+
+    .testimonial-carousel .owl-item {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer .btn.btn-social {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer .copyright {
+        font-size: 12px;
+    }
+}
