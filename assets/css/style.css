@@ -30,7 +30,6 @@ p{
 }
 
 
-/*** Button ***/
 .btn {
     font-weight: 500;
     transition: .5s;
@@ -66,7 +65,6 @@ p{
     font-weight: normal;
 }
 
-/*** Navbar ***/
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
@@ -137,7 +135,6 @@ p{
 }
 
 
-/*** Header ***/
 @media (max-width: 768px) {
     .header-carousel .owl-carousel-item {
         position: relative;
@@ -242,7 +239,6 @@ p{
 }
 
 
-/*** Section Title ***/
 .section-title h1 {
     position: relative;
     display: inline-block;
@@ -276,7 +272,6 @@ p{
 }
 
 
-/*** About ***/
 @media (min-width: 992px) {
     .container.about {
         max-width: 100% !important;
@@ -300,7 +295,6 @@ p{
 }
 
 
-/*** Service ***/
 .service-item img {
     transition: .5s;
 }
@@ -310,7 +304,6 @@ p{
 }
 
 
-/*** Feature ***/
 @media (min-width: 992px) {
     .container.feature {
         max-width: 100% !important;
@@ -334,7 +327,6 @@ p{
 }
 
 
-/*** Project Portfolio ***/
 
 #portfolio-container{
     margin-bottom: 20px!important;
@@ -390,7 +382,6 @@ p{
 }
 
 
-/*** Quote ***/
 @media (min-width: 992px) {
     .container.quote {
         max-width: 100% !important;
@@ -414,7 +405,6 @@ p{
 }
 
 
-/*** Team ***/
 .team-item img {
     transition: .5s;
 }
@@ -450,7 +440,6 @@ p{
 }
 
 
-/*** Testimonial ***/
 .testimonial-carousel::before {
     position: absolute;
     content: "";
@@ -529,7 +518,6 @@ p{
 }
 
 
-/*** Contact ***/
 @media (min-width: 992px) {
     .container.contact {
         max-width: 100% !important;
@@ -553,7 +541,6 @@ p{
 }
 
 
-/*** Footer ***/
 .footer {
     background: linear-gradient(rgba(40, 45, 48, 0.7), rgba(32, 39, 44, 0.7)), url(../img/footer.html) center center no-repeat;
     background-size: cover;
@@ -625,7 +612,6 @@ p{
       }
 }
 
-/* Additional responsive styles */
 @media (max-width: 768px) {
     .navbar .nav-item {
         margin-bottom: 10px;
@@ -649,4 +635,52 @@ p{
     .footer .copyright {
         font-size: 12px;
     }
+}
+
+body.error-404 {
+    background: linear-gradient(rgba(53, 53, 53, 0.7), rgba(53, 53, 53, 0.7)), url('../assets/img/background.jpg') center center no-repeat;
+    background-size: cover;
+    color: var(--light);
+    font-family: "Open Sans", sans-serif;
+}
+
+.container.text-center.error-404 {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.container.text-center.error-404 h1 {
+    font-size: 120px;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.container.text-center.error-404 h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--light);
+}
+
+.container.text-center.error-404 p {
+    font-size: 18px;
+    color: var(--light);
+    margin-bottom: 30px;
+}
+
+.container.text-center.error-404 a.btn {
+    font-size: 18px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.container.text-center.error-404 a.btn:hover {
+    background-color: var(--primary);
+}
+
+.back-to-top {
+    display: none;
 }
