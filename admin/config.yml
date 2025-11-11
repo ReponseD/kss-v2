@@ -1,11 +1,10 @@
 backend:
-  name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
-  # Use GitHub OAuth instead of Netlify Identity
-  # Uncomment the following lines to use GitHub OAuth:
-  # name: github
-  # repo: your-username/your-repo-name
-  # branch: main
+  name: github
+  repo: ReponseD/kss-v2  # ⚠️ REPLACE THIS with your GitHub username/repo (e.g., kagaramasec/kss-v2)
+  branch: main  # Your default branch (usually 'main' or 'master')
+  
+  # For Vercel hosting, you MUST use GitHub OAuth (not git-gateway)
+  # Git Gateway only works on Netlify hosting
 
 # Uncomment below to enable editorial workflow (drafts require approval)
 # publish_mode: editorial_workflow
