@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8">
+    <title>Kagarama Secondary School | Our Staff</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Kagarama Secondary School Staff, Teachers, Administration, Kigali, Rwanda">
+    <meta name="description" content="Meet the dedicated staff and faculty of Kagarama Secondary School in Kigali, Rwanda, including leadership, teachers, and administration.">
+    <link rel="canonical" href="https://www.kagaramasec.org/Staff.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="kss-logo-v4.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "School",
+      "name": "Kagarama Secondary School",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kagarama Sector",
+        "addressLocality": "Kigali",
+        "addressCountry": "RW"
+      },
+      "url": "https://www.kagaramasec.org"
+    }
+    </script>
+
+    <style>
+        /* Professional Staff Page Styles */
+        .page-header {
+            background: linear-gradient(rgba(25, 39, 78, 0.85), rgba(25, 39, 78, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 450px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-header h1 {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .leadership-message {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .leadership-message h3 {
+            color: #a05d3c;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #a05d3c;
+            padding-bottom: 15px;
+        }
+
+        .leadership-message .leadership-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .leadership-message .leadership-info img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #a05d3c;
+            margin-right: 25px;
+        }
+
+        .leadership-message .leadership-details h4 {
+            color: #1E1F24;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .leadership-message .leadership-details p {
+            color: #6c757d;
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        .leadership-message .message-content {
+            color: #374151;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .staff-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .staff-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .staff-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .staff-card-body {
+            padding: 25px 20px;
+        }
+
+        .staff-card h4 {
+            color: #1E1F24;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .staff-card .position {
+            color: #a05d3c;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .staff-card .subject {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .staff-card .qualification {
+            color: #6c757d;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .section-divider {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .section-divider h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1E1F24;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-divider h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #a05d3c;
+            border-radius: 2px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: #a05d3c;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        #tidio-chat {
+            bottom: 80px !important; 
+            right: 20px !important; 
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                height: 300px;
+                background-attachment: scroll;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .leadership-message {
+                padding: 30px 20px;
+            }
+
+            .leadership-message .leadership-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .leadership-message .leadership-info img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="kss-logo-v4.png" alt="Kagarama Secondary School Logo" style="max-height:70px;" loading="lazy">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                
+                <!-- Our School Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Our School</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <a href="About.html" class="dropdown-item">About KSS</a>
+                        <a href="Staff.html" class="dropdown-item">Principal's Message</a>
+                        <a href="Facilities.html" class="dropdown-item">Facilities</a>
+                        <a href="Staff.html" class="dropdown-item">Our Staff</a>
+                    </div>
+                </div>
+                
+                <!-- Admissions -->
+                <a href="Admissions.html" class="nav-item nav-link">Admissions</a>
+                
+                <!-- Academic Life Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Academic Life</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <a href="Staff.html" class="dropdown-item">Academic Staff</a>
+                        <a href="Program.html" class="dropdown-item">Programs</a>
+                    </div>
+                </div>
+                
+                <!-- Student Life Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Student Life</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <a href="Activities.html" class="dropdown-item">School Activities</a>
+                        <a href="Gallery.html" class="dropdown-item">Gallery</a>
+                    </div>
+                </div>
+                
+                <a href="Contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="Admissions.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" style="background-color: #a05d3c; color:#fff;">Apply Now<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="container-fluid">
+        
+        <!-- Page Header Start -->
+        <div class="container-fluid page-header py-5 mb-5">
+            <div class="container py-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown text-center">Our Staff</h1>
+                <p class="lead text-white text-center">Dedicated professionals committed to excellence</p>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+        <!-- Leadership Messages Section -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                
+                <!-- Headmaster's Message -->
+                <div class="leadership-message wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="leadership-info">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8Nfywvac_kLsr7GQ8Ouqak7CFXbXQ0WMlsQ&s" alt="Headmaster Samuel Nkurunziza">
+                        <div class="leadership-details">
+                            <h4>Samuel Nkurunziza</h4>
+                            <p>Headmaster</p>
+                        </div>
+                    </div>
+                    <h3>Message from the Headmaster</h3>
+                    <div class="message-content">
+                        <p>Welcome to Kagarama Secondary School. As Headmaster, I am honored to lead a team of dedicated educators who are committed to nurturing the next generation of leaders. Our staff members are not just teachers; they are mentors, role models, and champions of excellence who work tirelessly to ensure every student reaches their full potential.</p>
+                        <p>At KSS, we believe that quality education is built on the foundation of passionate, qualified, and caring educators. Our team brings together years of experience, innovative teaching methods, and a genuine commitment to student success. Together, we create an environment where academic excellence, character development, and personal growth flourish.</p>
+                        <p>I am proud of our staff's dedication to maintaining the highest standards of education while fostering a culture of respect, discipline, and innovation. We are here to guide, inspire, and support our students as they embark on their educational journey and prepare for a bright future.</p>
+                    </div>
+                </div>
+
+                <!-- DOS Message -->
+                <div class="leadership-message wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="leadership-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Dean of Studies">
+                        <div class="leadership-details">
+                            <h4>Mr. Innocent Bigiyobyenda</h4>
+                            <p>Dean of Studies (DOS)</p>
+                        </div>
+                    </div>
+                    <h3>Message from the Deputy of Studies</h3>
+                    <div class="message-content">
+                        <p>As the Deputy of Studies, I work closely with our academic team to ensure that our curriculum is delivered with excellence and that every student receives the support they need to succeed. Our teaching staff is carefully selected for their expertise, passion, and commitment to student-centered learning.</p>
+                        <p>We have organized our academic departments to ensure comprehensive coverage of all subjects, from Mathematics and Sciences to Languages and Humanities. Each department is led by experienced coordinators who work collaboratively to maintain high academic standards and implement innovative teaching strategies.</p>
+                        <p>Our teachers continuously engage in professional development to stay current with educational best practices and to enhance their teaching skills. This commitment to growth ensures that our students benefit from the latest pedagogical approaches and are well-prepared for their examinations and future academic pursuits.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Teachers Section -->
+        <div class="section-divider">
+            <h2>Our Teaching Staff</h2>
+            <p class="text-muted">Experienced educators dedicated to student success</p>
+        </div>
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                
+                <!-- Mathematics Department -->
+                <div class="mb-5">
+                    <span class="category-badge"><i class="fa fa-calculator me-2"></i>Mathematics Department</span>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Anselme Gakwerere</h4>
+                                    <p class="position">Senior Mathematics Teacher</p>
+                                    <p class="subject">Mathematics</p>
+                                    <p class="qualification">M.Ed. Mathematics</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Peter Niyonsenga</h4>
+                                    <p class="position">Mathematics Teacher</p>
+                                    <p class="subject">Mathematics</p>
+                                    <p class="qualification">B.Ed. Mathematics</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mrs. Sarah Mukamana</h4>
+                                    <p class="position">Mathematics Teacher</p>
+                                    <p class="subject">Mathematics</p>
+                                    <p class="qualification">B.Ed. Mathematics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sciences Department -->
+                <div class="mb-5">
+                    <span class="category-badge"><i class="fa fa-flask me-2"></i>Sciences Department</span>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Dr. Emmanuel Nkurunziza</h4>
+                                    <p class="position">Head of Sciences</p>
+                                    <p class="subject">Physics & Chemistry</p>
+                                    <p class="qualification">Ph.D. Physics</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mrs. Grace Uwimana</h4>
+                                    <p class="position">Biology Teacher</p>
+                                    <p class="subject">Biology</p>
+                                    <p class="qualification">M.Sc. Biology</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. David Nsengimana</h4>
+                                    <p class="position">Chemistry Teacher</p>
+                                    <p class="subject">Chemistry</p>
+                                    <p class="qualification">M.Sc. Chemistry</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Paul Niyonshuti</h4>
+                                    <p class="position">Physics Teacher</p>
+                                    <p class="subject">Physics</p>
+                                    <p class="qualification">B.Sc. Physics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages Department -->
+                <div class="mb-5">
+                    <span class="category-badge"><i class="fa fa-book me-2"></i>Languages Department</span>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mrs. Immaculée Mukamana</h4>
+                                    <p class="position">Head of Languages</p>
+                                    <p class="subject">English & Literature</p>
+                                    <p class="qualification">M.A. English Literature</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Jean Baptiste</h4>
+                                    <p class="position">French Teacher</p>
+                                    <p class="subject">French</p>
+                                    <p class="qualification">B.A. French</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mrs. Agnes Nyiraneza</h4>
+                                    <p class="position">Kinyarwanda Teacher</p>
+                                    <p class="subject">Kinyarwanda</p>
+                                    <p class="qualification">B.A. Kinyarwanda</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Humanities Department -->
+                <div class="mb-5">
+                    <span class="category-badge"><i class="fa fa-globe me-2"></i>Humanities Department</span>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Charles Nkurunziza</h4>
+                                    <p class="position">History Teacher</p>
+                                    <p class="subject">History</p>
+                                    <p class="qualification">M.A. History</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mrs. Josephine Mukamana</h4>
+                                    <p class="position">Geography Teacher</p>
+                                    <p class="subject">Geography</p>
+                                    <p class="qualification">B.Ed. Geography</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Thomas Nsengimana</h4>
+                                    <p class="position">Economics Teacher</p>
+                                    <p class="subject">Economics</p>
+                                    <p class="qualification">M.A. Economics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Studies -->
+                <div class="mb-5">
+                    <span class="category-badge"><i class="fa fa-laptop me-2"></i>Computer Studies</span>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="staff-card">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Teacher">
+                                <div class="staff-card-body">
+                                    <h4>Mr. Eric Nkurunziza</h4>
+                                    <p class="position">ICT Teacher</p>
+                                    <p class="subject">Computer Studies</p>
+                                    <p class="qualification">B.Sc. Computer Science</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Administration Section -->
+        <div class="section-divider">
+            <h2>Administration Staff</h2>
+            <p class="text-muted">Supporting excellence behind the scenes</p>
+        </div>
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Administrator">
+                            <div class="staff-card-body">
+                                <h4>Mr. Joseph Nkurunziza</h4>
+                                <p class="position">School Secretary</p>
+                                <p class="subject">Administration</p>
+                                <p class="qualification">B.A. Public Administration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Administrator">
+                            <div class="staff-card-body">
+                                <h4>Mrs. Claire Uwimana</h4>
+                                <p class="position">Bursar</p>
+                                <p class="subject">Finance</p>
+                                <p class="qualification">B.Com. Accounting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Administrator">
+                            <div class="staff-card-body">
+                                <h4>Mr. Patrick Nsengimana</h4>
+                                <p class="position">Librarian</p>
+                                <p class="subject">Library Services</p>
+                                <p class="qualification">B.A. Library Science</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Administrator">
+                            <div class="staff-card-body">
+                                <h4>Mrs. Rose Mukamana</h4>
+                                <p class="position">Guidance Counselor</p>
+                                <p class="subject">Student Support</p>
+                                <p class="qualification">M.A. Counseling</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Administrator">
+                            <div class="staff-card-body">
+                                <h4>Mr. Samuel Niyonsenga</h4>
+                                <p class="position">IT Support</p>
+                                <p class="subject">Technology</p>
+                                <p class="qualification">B.Sc. IT</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="staff-card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Administrator">
+                            <div class="staff-card-body">
+                                <h4>Mrs. Alice Nkurunziza</h4>
+                                <p class="position">Nurse</p>
+                                <p class="subject">Health Services</p>
+                                <p class="qualification">RN, B.Sc. Nursing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <img src="kss-logo-v4.png" alt="Kagarama Secondary School Logo" style="max-height:200px;">
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Get in touch</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kicukiro</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+250 788 566 707" style="color:#fff">+250 788 566 707</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:info@kagaramasec.org" style="color:#fff">info@kagaramasec.org</a></p>
+                    
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#"><script>document.write(new Date().getFullYear())</script> - Kagarama Secondary School</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a class="border-bottom" href="https://www.siliconvalleyafrica.org/">Silicon Valley of Africa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/wow/wow.min.js"></script>
+    <script src="assets/lib/easing/easing.min.js"></script>
+    <script src="assets/lib/counterup/counterup.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/main.js"></script>
+
+    <script src="//code.tidio.co/se12xxejs29lskmn8cekydq7lgbfaffx.js" async></script>
+</body>
+</html>
+
