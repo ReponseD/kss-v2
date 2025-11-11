@@ -2,12 +2,10 @@ backend:
   name: github
   repo: ReponseD/kss-v2
   branch: main
-  
-  # For Vercel hosting with GitHub OAuth, you need Netlify OAuth proxy
-  # Create a Netlify site (just for OAuth) and use its auth endpoint
-  # OR use the default Netlify OAuth endpoint
   auth_scope: repo  # Request repository access
-  base_url: https://www.kagaramasec.org
+  # For Vercel hosting with GitHub OAuth, use Netlify OAuth proxy
+  # DO NOT set base_url here - it causes URL duplication
+  # auth_endpoint must be a complete URL
   auth_endpoint: https://api.netlify.com/auth/done
 
 # Uncomment below to enable editorial workflow (drafts require approval)
