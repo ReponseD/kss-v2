@@ -1,0 +1,70 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+  # Use GitHub OAuth instead of Netlify Identity
+  # Uncomment the following lines to use GitHub OAuth:
+  # name: github
+  # repo: your-username/your-repo-name
+  # branch: main
+
+# Uncomment below to enable editorial workflow (drafts require approval)
+# publish_mode: editorial_workflow
+
+media_folder: "assets/uploads" # Media files will be stored in the repo under assets/uploads
+public_folder: "/assets/uploads" # The src attribute for uploaded media will begin with /assets/uploads
+
+# Logo URL (optional)
+logo_url: "https://www.kagaramasec.org/kss-logo-v4.png"
+
+# Site URL (optional)
+site_url: "https://www.kagaramasec.org"
+
+# Collections
+collections:
+  # Posts / Articles Collection
+  - name: "posts"
+    label: "Posts / Articles"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Author", name: "author", widget: "string", required: true, default: "Media Club"}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: true, format: "YYYY-MM-DD HH:mm"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false, hint: "Upload an image to feature with this post"}
+      - {label: "Body", name: "body", widget: "markdown", required: true, hint: "Write your article content here. You can use Markdown formatting."}
+      - {label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Short summary of the post (optional)"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false, hint: "Featured posts appear prominently on the homepage"}
+      - {label: "Category", name: "category", widget: "select", options: ["News", "Blog", "Announcement"], required: false, default: "News"}
+
+  # Media / Videos Collection
+  - name: "media"
+    label: "Media / Videos"
+    folder: "content/media"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "markdown", required: false, hint: "Describe the video content"}
+      - {label: "Video URL", name: "video_url", widget: "string", required: true, hint: "YouTube or Vimeo URL (e.g., https://www.youtube.com/watch?v=... or https://vimeo.com/...)"}
+      - {label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false, hint: "Custom thumbnail image (optional - video platform will provide one if not set)"}
+      - {label: "Video Type", name: "video_type", widget: "select", options: ["YouTube", "Vimeo"], default: "YouTube", required: true}
+      - {label: "Date", name: "date", widget: "datetime", required: true, format: "YYYY-MM-DD HH:mm"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
+
+  # Announcements / Events Collection
+  - name: "events"
+    label: "Announcements / Events"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "markdown", required: true, hint: "Full details about the event or announcement"}
+      - {label: "Event Date", name: "date", widget: "datetime", required: true, format: "YYYY-MM-DD HH:mm", hint: "When does this event start?"}
+      - {label: "End Date", name: "end_date", widget: "datetime", required: false, format: "YYYY-MM-DD HH:mm", hint: "Optional: When does this event end? Leave blank for single-day events"}
+      - {label: "Location", name: "location", widget: "string", required: false, hint: "Where will this event take place?"}
+      - {label: "Image", name: "image", widget: "image", required: false, hint: "Event image or flyer"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false, hint: "Featured events appear prominently on the website"}
+      - {label: "Event Type", name: "event_type", widget: "select", options: ["Announcement", "Event", "Meeting", "Workshop", "Sports", "Academic"], default: "Event", required: true}

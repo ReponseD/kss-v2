@@ -1,4 +1,0 @@
-# Protect logs directory
-Order allow,deny
-Deny from all
-

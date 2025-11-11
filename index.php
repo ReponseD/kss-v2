@@ -279,9 +279,9 @@ $featuredGallery = $db->query("
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="bg-white rounded overflow-hidden shadow-sm h-100">
                             <?php if ($item['featured_image']): ?>
-                                <img class="img-fluid w-100" src="<?php echo htmlspecialchars($item['featured_image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" style="height:200px; object-fit:cover;">
+                                <img class="img-fluid w-100" src="<?php echo htmlspecialchars($item['featured_image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" style="height:200px; object-fit:cover;" loading="lazy">
                             <?php else: ?>
-                                <img class="img-fluid w-100" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="News" style="height:200px; object-fit:cover;">
+                                <img class="img-fluid w-100" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="News" style="height:200px; object-fit:cover;" loading="lazy">
                             <?php endif; ?>
                             <div class="p-4">
                                 <div class="d-flex mb-2">

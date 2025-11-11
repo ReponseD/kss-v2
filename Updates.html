@@ -5,6 +5,23 @@
     <meta charset="utf-8">
     <meta name="description" content="Stay updated with the latest news, blogs, announcements, and updates from Kagarama Secondary School in Kigali, Rwanda.">
     <meta name="keywords" content="Kagarama Secondary School Updates, News, Blogs, Announcements, Kigali, Rwanda">
+    <meta name="author" content="Kagarama Secondary School">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kagaramasec.org/Updates.html">
+    <meta property="og:title" content="Updates - Kagarama Secondary School">
+    <meta property="og:description" content="Stay updated with the latest news, blogs, announcements, and updates from Kagarama Secondary School.">
+    <meta property="og:image" content="https://www.kagaramasec.org/kss-logo-v4.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.kagaramasec.org/Updates.html">
+    <meta property="twitter:title" content="Updates - Kagarama Secondary School">
+    <meta property="twitter:description" content="Stay updated with the latest news, blogs, announcements, and updates from Kagarama Secondary School.">
+    <meta property="twitter:image" content="https://www.kagaramasec.org/kss-logo-v4.png">
+    
     <link rel="canonical" href="https://www.kagaramasec.org/Updates.html">
     <title>Kagarama Secondary School | Updates</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -99,7 +116,7 @@
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="kss-logo-v4.png" alt="Kagarama Secondary School Logo" style="max-height:70px;" loading="lazy">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -107,7 +124,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="index.php" class="nav-item nav-link">Home</a>
                 
                 <!-- Our School Dropdown -->
                 <div class="nav-item dropdown">
@@ -352,12 +369,23 @@
                         `);
                     }
                 },
-                error: function() {
+                error: function(xhr) {
+                    let errorMsg = 'Error loading content. Please try again later.';
+                    if (xhr.status === 404) {
+                        errorMsg = 'Content not found.';
+                    } else if (xhr.status === 500) {
+                        errorMsg = 'Server error. Please try again later.';
+                    } else if (xhr.status === 0) {
+                        errorMsg = 'Network error. Please check your connection.';
+                    }
                     container.html(`
                         <div class="empty-state">
                             <i class="fas fa-exclamation-triangle"></i>
                             <h4>Error loading content</h4>
-                            <p>Please try again later.</p>
+                            <p>${errorMsg}</p>
+                            <button class="btn btn-primary mt-3" onclick="loadContent('${type}')">
+                                <i class="fas fa-redo me-2"></i>Try Again
+                            </button>
                         </div>
                     `);
                 }

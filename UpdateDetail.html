@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read the full article from Kagarama Secondary School">
+    <meta name="keywords" content="Kagarama Secondary School, News, Blog, Announcement">
+    <meta name="author" content="Kagarama Secondary School">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.kagaramasec.org/UpdateDetail.html">
+    <meta property="og:title" content="Update Details - Kagarama Secondary School">
+    <meta property="og:description" content="Read the full article from Kagarama Secondary School">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.kagaramasec.org/UpdateDetail.html">
+    <meta property="twitter:title" content="Update Details - Kagarama Secondary School">
+    <meta property="twitter:description" content="Read the full article from Kagarama Secondary School">
+    
+    <link rel="canonical" href="https://www.kagaramasec.org/UpdateDetail.html">
     <title>Update Details - Kagarama Secondary School</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -167,13 +185,38 @@
                             <span><i class="fas fa-calendar me-1"></i> ${new Date(data.published_at || data.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span> |
                             <span class="badge bg-primary">${data.content_type}</span>
                         `);
-                        $('#articleContent').html(data.content);
+                        // Update page title and meta tags
+                        document.title = data.title + ' - Kagarama Secondary School';
+                        $('meta[name="description"]').attr('content', data.excerpt || data.content.substring(0, 160));
+                        if (data.featured_image) {
+                            $('meta[property="og:image"]').attr('content', data.featured_image);
+                            $('meta[property="twitter:image"]').attr('content', data.featured_image);
+                        }
+                        $('meta[property="og:title"]').attr('content', data.title);
+                        $('meta[property="twitter:title"]').attr('content', data.title);
+                        $('meta[property="og:description"]').attr('content', data.excerpt || data.content.substring(0, 160));
+                        $('meta[property="twitter:description"]').attr('content', data.excerpt || data.content.substring(0, 160));
+                        
+                        // Display content with proper formatting
+                        let contentHtml = '';
+                        if (data.featured_image) {
+                            contentHtml += `<img src="${data.featured_image}" alt="${data.title}" class="img-fluid rounded mb-4" style="max-height: 400px; width: 100%; object-fit: cover;">`;
+                        }
+                        contentHtml += `<div class="article-content">${data.content}</div>`;
+                        $('#articleContent').html(contentHtml);
                     } else {
-                        $('#articleContent').html('<div class="alert alert-danger">Content not found.</div>');
+                        $('#articleContent').html('<div class="alert alert-danger"><i class="fas fa-exclamation-triangle me-2"></i>Content not found.</div>');
+                        document.title = 'Content Not Found - Kagarama Secondary School';
                     }
                 },
-                error: function() {
-                    $('#articleContent').html('<div class="alert alert-danger">Error loading content. Please try again later.</div>');
+                error: function(xhr) {
+                    let errorMsg = 'Error loading content. Please try again later.';
+                    if (xhr.status === 404) {
+                        errorMsg = 'Content not found.';
+                    } else if (xhr.status === 500) {
+                        errorMsg = 'Server error. Please try again later.';
+                    }
+                    $('#articleContent').html(`<div class="alert alert-danger"><i class="fas fa-exclamation-triangle me-2"></i>${errorMsg}</div>`);
                 }
             });
         } else {
