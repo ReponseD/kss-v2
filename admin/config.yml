@@ -3,9 +3,8 @@ backend:
   repo: ReponseD/kss-v2
   branch: main
   auth_scope: repo
-  # For Vercel hosting with GitHub OAuth, use Netlify OAuth proxy
-  # Using proxy_url instead of auth_endpoint to avoid URL construction issues
-  proxy_url: https://api.netlify.com/auth/done
+  # For Vercel hosting: Use direct GitHub OAuth (no Netlify proxy needed)
+  # This avoids URL duplication issues
 
 # Uncomment below to enable editorial workflow (drafts require approval)
 # publish_mode: editorial_workflow
