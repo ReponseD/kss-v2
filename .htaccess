@@ -1,22 +1,32 @@
-# KSS Updates System - Apache Configuration
+# KSS CMS - Apache Configuration
+# Production Configuration for https://www.kagaramasec.org
 
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
     
-    # Force HTTPS (uncomment in production)
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # Force HTTPS (Production)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Redirect index.html to index.php
+    RewriteCond %{THE_REQUEST} /index\.html [NC]
+    RewriteRule ^index\.html$ /index.php [R=301,L]
     
     # Prevent directory listing
     Options -Indexes
-    
-    # Protect sensitive files
-    <FilesMatch "^(\.htaccess|\.env|config\.php|database\.php)$">
-        Order allow,deny
-        Deny from all
-    </FilesMatch>
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "^(config\.php|\.htaccess|\.env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect config directory
+<IfModule mod_rewrite.c>
+    RewriteRule ^config/ - [F,L]
 </IfModule>
 
 # Security Headers
@@ -24,6 +34,7 @@
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # PHP Settings
@@ -32,11 +43,12 @@
     php_value post_max_size 10M
     php_value max_execution_time 300
     php_value max_input_time 300
+    php_value memory_limit 128M
 </IfModule>
 
 # Enable CORS for API (adjust as needed)
 <IfModule mod_headers.c>
-    <FilesMatch "\.(php)$">
+    <FilesMatch "api/.*\.php$">
         Header set Access-Control-Allow-Origin "*"
         Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
         Header set Access-Control-Allow-Headers "Content-Type, Authorization"
@@ -59,3 +71,6 @@
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
+# Custom Error Pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html

@@ -1,7 +1,17 @@
-# KSS Updates System - Setup Guide
+# KSS CMS - Complete Setup Guide
 
 ## Overview
-The KSS Updates System is a comprehensive content management system that allows the KSS media team to manage news articles, blogs, announcements, and gallery images. The system includes a user-friendly admin panel and a public-facing frontend.
+The KSS CMS is a comprehensive content management system that converts your static HTML website into a fully dynamic, database-driven site. The media team can log in from any computer, update content remotely, and see changes reflected live on https://www.kagaramasec.org/ without touching local files.
+
+**Key Features:**
+- ✅ Secure admin login system
+- ✅ Manage News, Blogs, and Announcements
+- ✅ Upload and organize Gallery images
+- ✅ Edit Homepage sections and banners
+- ✅ All data stored in MySQL database
+- ✅ File uploads stored on server
+- ✅ Responsive admin panel
+- ✅ Production-ready security
 
 ## Features
 - **Content Management**: Create, edit, and manage news, blogs, and announcements
@@ -72,39 +82,59 @@ UPDATE users SET password_hash = '$2y$10$...' WHERE username = 'admin';
 
 ## Directory Structure
 ```
-kss-v2/
+www.kagaramasec.org/
 ├── admin/              # Admin panel files
 │   ├── login.php       # Login page
 │   ├── dashboard.php   # Admin dashboard
-│   └── ...
+│   ├── content.php     # Content management
+│   ├── gallery.php     # Gallery management
+│   └── homepage.php    # Homepage editor
 ├── api/                # API endpoints
 │   ├── auth.php        # Authentication API
 │   ├── content.php     # Content management API
 │   ├── gallery.php     # Gallery API
+│   ├── homepage.php    # Homepage API
 │   └── categories.php  # Categories API
 ├── config/             # Configuration files
-│   ├── database.php    # Database configuration
-│   └── functions.php   # Utility functions
+│   ├── functions.php   # Utility functions
+│   └── database.php    # (Legacy - use config.php)
+├── config.php          # MAIN CONFIG FILE (Edit this!)
 ├── database/           # Database files
 │   └── schema.sql      # Database schema
-├── uploads/            # Uploaded files
+├── uploads/            # Uploaded files (set permissions 755)
 │   └── gallery/        # Gallery images
-├── assets/             # Frontend assets
-└── *.html              # Frontend pages
+├── assets/             # Frontend assets (keep existing)
+├── index.php           # Dynamic homepage (replaces index.html)
+├── Updates.html        # Updates page
+├── Gallery.html         # Gallery page
+├── UpdateDetail.html   # Content detail page
+├── About.html          # (Keep existing)
+├── Contact.html        # (Keep existing)
+└── *.html              # Other existing pages
 ```
 
 ## Usage
 
-### Admin Panel
-1. Navigate to `/admin/login.php`
-2. Login with your credentials
+### Admin Panel Access
+1. Navigate to: **https://www.kagaramasec.org/admin/login.php**
+2. Login with credentials:
+   - Username: `admin`
+   - Password: `admin123` (change immediately!)
 3. Use the dashboard to:
-   - Create news articles
-   - Write blog posts
-   - Post announcements
-   - Upload gallery images
-   - Manage categories
-   - View statistics
+   - **News**: Create and manage news articles
+   - **Blogs**: Write and publish blog posts
+   - **Announcements**: Post school announcements
+   - **Gallery**: Upload and organize images
+   - **Homepage**: Edit homepage sections and banners
+   - **Categories**: Organize content
+   - **Users**: Manage team members (Admin only)
+
+### Remote Access
+- ✅ Login from any computer at school
+- ✅ Update content from anywhere
+- ✅ Changes appear live immediately
+- ✅ No local file editing needed
+- ✅ All data stored in database
 
 ### API Endpoints
 
@@ -126,6 +156,15 @@ kss-v2/
 - `POST /api/gallery.php?action=upload` - Upload image
 - `PUT /api/gallery.php?action=update&id=1` - Update item
 - `DELETE /api/gallery.php?action=delete&id=1` - Delete item
+
+#### Homepage
+- `GET /api/homepage.php?action=get_sections` - Get all homepage sections
+- `GET /api/homepage.php?action=get_section&key=hero_title` - Get single section
+- `PUT /api/homepage.php?action=update_section` - Update section
+- `GET /api/homepage.php?action=get_banners` - Get all banners
+- `POST /api/homepage.php?action=create_banner` - Create banner
+- `PUT /api/homepage.php?action=update_banner&id=1` - Update banner
+- `DELETE /api/homepage.php?action=delete_banner&id=1` - Delete banner
 
 ## Security Considerations
 
@@ -153,8 +192,40 @@ kss-v2/
 - Verify .htaccess file is present
 - Check PHP error logs
 
+## Production Deployment
+
+### Quick Deployment Steps
+
+1. **Upload Files**
+   - Upload all files to your web server
+   - Keep existing HTML files
+   - Replace index.html with index.php
+
+2. **Configure**
+   - Edit `config.php` with your database credentials
+   - Set `APP_URL` to `https://www.kagaramasec.org`
+
+3. **Database**
+   - Create database and user
+   - Import `database/schema.sql`
+
+4. **Permissions**
+   - Set uploads/ folder to 755
+   - Set config.php to 600
+
+5. **Test**
+   - Visit admin login page
+   - Login and create test content
+   - Verify it appears on frontend
+
+**See `DEPLOYMENT_GUIDE.md` for detailed instructions.**
+
 ## Support
-For issues or questions, contact the development team or refer to the documentation.
+For issues or questions:
+- Check `DEPLOYMENT_GUIDE.md` for deployment help
+- Review `PRODUCTION_CHECKLIST.md` before going live
+- Check error logs: `logs/php_errors.log`
+- Contact the development team
 
 ## License
 Proprietary - Kagarama Secondary School

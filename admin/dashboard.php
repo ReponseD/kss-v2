@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../config/functions.php';
 
 if (!isLoggedIn()) {
@@ -127,6 +127,7 @@ $recentContent = $db->query("
                     <li><a href="content.php?type=blog"><i class="fas fa-blog"></i> Blogs</a></li>
                     <li><a href="content.php?type=announcement"><i class="fas fa-bullhorn"></i> Announcements</a></li>
                     <li><a href="gallery.php"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="homepage.php"><i class="fas fa-edit"></i> Homepage</a></li>
                     <li><a href="categories.php"><i class="fas fa-tags"></i> Categories</a></li>
                     <li><a href="users.php"><i class="fas fa-users"></i> Users</a></li>
                     <li><a href="#" onclick="logout(); return false;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -236,6 +237,9 @@ $recentContent = $db->query("
                                 </a>
                                 <a href="gallery.php?action=upload" class="btn btn-warning me-2 mb-2">
                                     <i class="fas fa-upload me-2"></i>Upload Image
+                                </a>
+                                <a href="homepage.php" class="btn btn-info me-2 mb-2">
+                                    <i class="fas fa-edit me-2"></i>Edit Homepage
                                 </a>
                             </div>
                         </div>

@@ -51,7 +51,29 @@
 
 ---
 
-### Part 3: Uploading Gallery Images
+### Part 3: Editing Homepage
+
+#### Step 1: Navigate to Homepage
+1. Click "Homepage" in the sidebar
+2. You'll see homepage sections and banners
+
+#### Step 2: Edit Homepage Sections
+1. Find "Welcome Section Title"
+2. Update the text
+3. Click "Save" button
+4. Visit homepage to see changes
+
+#### Step 3: Manage Banners
+1. Click "Add Banner" button
+2. Fill in banner details:
+   - Title: "Welcome to KSS"
+   - Image URL: Upload image to gallery first, then copy URL
+   - Button Text: "Apply Now"
+   - Button Link: "Admissions.html"
+3. Click "Save"
+4. Banner appears in homepage carousel
+
+### Part 4: Uploading Gallery Images
 
 #### Step 1: Go to Gallery
 1. Click "Gallery" in the sidebar
@@ -77,7 +99,7 @@
 
 ---
 
-### Part 4: Viewing Content on Frontend
+### Part 5: Viewing Content on Frontend
 
 #### Step 1: Visit Updates Page
 1. Navigate to: `http://your-domain.com/Updates.html`
@@ -222,6 +244,7 @@ Before Uploading Images:
 - Blogs: `/admin/content.php?type=blog`
 - Announcements: `/admin/content.php?type=announcement`
 - Gallery: `/admin/gallery.php`
+- Homepage: `/admin/homepage.php`
 
 ### Frontend URLs
 - Updates: `/Updates.html`

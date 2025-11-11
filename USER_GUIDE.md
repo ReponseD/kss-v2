@@ -46,6 +46,7 @@ The dashboard provides:
 - **Blogs**: Manage blog posts
 - **Announcements**: Manage announcements
 - **Gallery**: Upload and manage images
+- **Homepage**: Edit homepage sections and banners
 - **Categories**: Organize content by categories
 - **Users**: Manage team members (Admin only)
 
@@ -127,6 +128,31 @@ The dashboard provides:
 2. **Confirm**
    - Confirm deletion in the popup
    - **⚠️ Warning**: This action cannot be undone!
+
+### Managing Homepage
+
+1. **Navigate to Homepage**
+   - Click "Homepage" in the sidebar
+   - You'll see two sections:
+     - **Homepage Sections**: Text content (titles, descriptions, etc.)
+     - **Homepage Banners**: Hero carousel images
+
+2. **Edit Homepage Sections**
+   - Find the section you want to edit
+   - Update the text in the input field
+   - Click "Save" button
+   - Changes appear on homepage immediately
+
+3. **Manage Banners**
+   - Click "Add Banner" to create new carousel slide
+   - Fill in:
+     - Title and Subtitle
+     - Description
+     - Image URL (upload to gallery first, then copy URL)
+     - Button text and link (optional)
+     - Display order
+   - Click "Save"
+   - Use Edit/Delete buttons to manage existing banners
 
 ---
 

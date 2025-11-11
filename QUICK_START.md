@@ -14,13 +14,13 @@ mysql -u root -p kss_updates < database/schema.sql
 ```
 
 ### Step 2: Configuration (1 minute)
-Edit `config/database.php`:
+Edit `config.php` (main config file):
 ```php
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'kss_updates');
 define('DB_USER', 'your_username');
 define('DB_PASS', 'your_password');
-define('APP_URL', 'http://localhost/kss-v2');
+define('APP_URL', 'https://www.kagaramasec.org');
 ```
 
 ### Step 3: Permissions (1 minute)
@@ -31,11 +31,17 @@ chmod 755 uploads/gallery/
 ```
 
 ### Step 4: First Login (1 minute)
-1. Go to: `http://localhost/kss-v2/admin/login.php`
+1. Go to: `https://www.kagaramasec.org/admin/login.php`
 2. Login with:
    - Username: `admin`
    - Password: `admin123`
 3. **Change password immediately!**
+
+### Step 5: Edit Homepage (Optional)
+1. Click **"Homepage"** in sidebar
+2. Edit sections (titles, descriptions)
+3. Add/edit banners for hero carousel
+4. Changes appear on homepage immediately
 
 ---
 

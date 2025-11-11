@@ -13,7 +13,7 @@ define('DB_CHARSET', 'utf8mb4');
 
 // Application configuration
 define('APP_NAME', 'KSS Updates System');
-define('APP_URL', 'http://localhost/kss-v2');
+define('APP_URL', 'https://www.kagaramasec.org');
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', APP_URL . '/uploads/');
 define('MAX_FILE_SIZE', 10 * 1024 * 1024); // 10MB
