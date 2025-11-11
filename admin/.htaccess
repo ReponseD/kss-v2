@@ -1,0 +1,25 @@
+# Admin Directory - Additional PHP Handler
+# This ensures PHP files execute in admin directory
+
+# Force PHP Execution
+<IfModule mod_php7.c>
+    AddType application/x-httpd-php .php
+    AddHandler application/x-httpd-php .php
+</IfModule>
+
+<IfModule mod_php8.c>
+    AddType application/x-httpd-php .php
+    AddHandler application/x-httpd-php .php
+</IfModule>
+
+# Alternative handler
+AddHandler application/x-httpd-php .php
+AddType application/x-httpd-php .php
+
+# Security: Prevent direct access to sensitive files
+<FilesMatch "^(config|functions)\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+

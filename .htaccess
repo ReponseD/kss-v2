@@ -1,6 +1,21 @@
 # KSS CMS - Apache Configuration
 # Production Configuration for https://www.kagaramasec.org
 
+# Force PHP Execution (CRITICAL - Fixes download issue)
+<IfModule mod_php7.c>
+    AddType application/x-httpd-php .php
+    AddHandler application/x-httpd-php .php
+</IfModule>
+
+<IfModule mod_php8.c>
+    AddType application/x-httpd-php .php
+    AddHandler application/x-httpd-php .php
+</IfModule>
+
+# Alternative PHP handler (if above doesn't work)
+AddHandler application/x-httpd-php .php
+AddType application/x-httpd-php .php
+
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
