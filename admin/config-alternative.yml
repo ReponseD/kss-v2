@@ -1,0 +1,24 @@
+# ALTERNATIVE CONFIGURATION - Direct GitHub OAuth (No Netlify Proxy)
+# Use this if proxy_url still causes issues
+# 
+# To use this:
+# 1. Rename this file to config.yml (backup current one first)
+# 2. Update GitHub OAuth App callback URL to: https://www.kagaramasec.org/admin/index.html
+# 3. No Netlify setup needed
+
+backend:
+  name: github
+  repo: ReponseD/kss-v2
+  branch: main
+  auth_scope: repo
+  # No auth_endpoint or proxy_url - direct GitHub OAuth
+  # Users authenticate directly with GitHub
+
+# Rest of config stays the same...
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+logo_url: "https://www.kagaramasec.org/kss-logo-v4.png"
+
+collections:
+  # ... (same as main config)
+

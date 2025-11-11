@@ -2,11 +2,10 @@ backend:
   name: github
   repo: ReponseD/kss-v2
   branch: main
-  auth_scope: repo  # Request repository access
+  auth_scope: repo
   # For Vercel hosting with GitHub OAuth, use Netlify OAuth proxy
-  # DO NOT set base_url here - it causes URL duplication
-  # auth_endpoint must be a complete URL
-  auth_endpoint: https://api.netlify.com/auth/done
+  # Using proxy_url instead of auth_endpoint to avoid URL construction issues
+  proxy_url: https://api.netlify.com/auth/done
 
 # Uncomment below to enable editorial workflow (drafts require approval)
 # publish_mode: editorial_workflow
@@ -17,8 +16,8 @@ public_folder: "/assets/uploads" # The src attribute for uploaded media will beg
 # Logo URL (optional)
 logo_url: "https://www.kagaramasec.org/kss-logo-v4.png"
 
-# Site URL (optional)
-site_url: "https://www.kagaramasec.org"
+# Site URL - REMOVED to prevent URL duplication in auth endpoint
+# site_url: "https://www.kagaramasec.org"
 
 # Collections
 collections:
