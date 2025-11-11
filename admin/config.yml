@@ -1,10 +1,14 @@
 backend:
   name: github
-  repo: ReponseD/kss-v2  # ⚠️ REPLACE THIS with your GitHub username/repo (e.g., kagaramasec/kss-v2)
-  branch: main  # Your default branch (usually 'main' or 'master')
+  repo: ReponseD/kss-v2
+  branch: main
   
-  # For Vercel hosting, you MUST use GitHub OAuth (not git-gateway)
-  # Git Gateway only works on Netlify hosting
+  # For Vercel hosting with GitHub OAuth, you need Netlify OAuth proxy
+  # Create a Netlify site (just for OAuth) and use its auth endpoint
+  # OR use the default Netlify OAuth endpoint
+  auth_scope: repo  # Request repository access
+  base_url: https://www.kagaramasec.org
+  auth_endpoint: https://api.netlify.com/auth/done
 
 # Uncomment below to enable editorial workflow (drafts require approval)
 # publish_mode: editorial_workflow
