@@ -13,7 +13,7 @@ https://www.kagaramasec.org/admin/index.html
 
 ### 2. Test (1 minute)
 
-1. Visit: `https://www.kagaramasec.org/admin`
+1. Visit: `https://www.k   agaramasec.org/admin`
 2. Click "Login with GitHub"
 3. **Check the redirect URL** - should be:
    ```
