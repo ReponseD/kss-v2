@@ -312,7 +312,9 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        const API_BASE = 'api/content.php';
+        // Content data source - JSON file generated from Markdown
+        const CONTENT_DATA_URL = '/assets/data/content.json';
+        let contentData = null;
         
         // Check URL parameter for type
         const urlParams = new URLSearchParams(window.location.search);
@@ -328,6 +330,29 @@
                 const tab = new bootstrap.Tab(document.getElementById(tabMap[typeParam]));
                 tab.show();
             }
+        }
+        
+        // Load content data once
+        function loadContentData() {
+            if (contentData) {
+                return Promise.resolve(contentData);
+            }
+            
+            return fetch(CONTENT_DATA_URL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load content data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    contentData = data;
+                    return data;
+                })
+                .catch(error => {
+                    console.error('Error loading content:', error);
+                    return { posts: [], events: [], media: [], all: [] };
+                });
         }
         
         // Load content based on tab
@@ -347,75 +372,80 @@
             // Show loading
             container.html('<div class="loading"><i class="fas fa-spinner fa-spin fa-2x"></i><p>Loading content...</p></div>');
             
-            const params = { action: 'list', status: 'published', per_page: 12 };
-            if (type !== 'all') {
-                params.type = type;
-            }
-            
-            $.ajax({
-                url: API_BASE,
-                method: 'GET',
-                data: params,
-                success: function(response) {
-                    if (response.error === false && response.data.items.length > 0) {
-                        renderContent(container, response.data.items);
-                    } else {
-                        container.html(`
-                            <div class="empty-state">
-                                <i class="fas fa-inbox"></i>
-                                <h4>No ${type === 'all' ? 'content' : type} found</h4>
-                                <p>Check back later for updates.</p>
-                            </div>
-                        `);
-                    }
-                },
-                error: function(xhr) {
-                    let errorMsg = 'Error loading content. Please try again later.';
-                    if (xhr.status === 404) {
-                        errorMsg = 'Content not found.';
-                    } else if (xhr.status === 500) {
-                        errorMsg = 'Server error. Please try again later.';
-                    } else if (xhr.status === 0) {
-                        errorMsg = 'Network error. Please check your connection.';
-                    }
+            loadContentData().then(data => {
+                let items = [];
+                
+                switch(type) {
+                    case 'all':
+                        items = data.all || [];
+                        break;
+                    case 'news':
+                        items = (data.posts || []).filter(p => p.category === 'News');
+                        break;
+                    case 'blog':
+                        items = (data.posts || []).filter(p => p.category === 'Blog');
+                        break;
+                    case 'announcement':
+                        items = data.events || [];
+                        break;
+                    default:
+                        items = [];
+                }
+                
+                // Limit to 12 items per page
+                items = items.slice(0, 12);
+                
+                if (items.length > 0) {
+                    renderContent(container, items);
+                } else {
                     container.html(`
                         <div class="empty-state">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <h4>Error loading content</h4>
-                            <p>${errorMsg}</p>
-                            <button class="btn btn-primary mt-3" onclick="loadContent('${type}')">
-                                <i class="fas fa-redo me-2"></i>Try Again
-                            </button>
+                            <i class="fas fa-inbox"></i>
+                            <h4>No ${type === 'all' ? 'content' : type} found</h4>
+                            <p>Check back later for updates.</p>
                         </div>
                     `);
                 }
+            }).catch(error => {
+                container.html(`
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Error loading content</h4>
+                        <p>Unable to load content. Please try again later.</p>
+                        <button class="btn btn-primary mt-3" onclick="loadContent('${type}')">
+                            <i class="fas fa-redo me-2"></i>Try Again
+                        </button>
+                    </div>
+                `);
             });
         }
         
         function renderContent(container, items) {
             let html = '';
             items.forEach(item => {
-                const date = new Date(item.created_at).toLocaleDateString('en-US', { 
+                const date = new Date(item.date || item.created_at).toLocaleDateString('en-US', { 
                     year: 'numeric', 
                     month: 'long', 
                     day: 'numeric' 
                 });
-                const excerpt = item.excerpt || item.content.substring(0, 150) + '...';
-                const image = item.featured_image || 'https://placehold.co/400x200';
+                const excerpt = item.excerpt || (item.content ? item.content.substring(0, 150).replace(/\n/g, ' ').trim() + '...' : '');
+                const image = item.featured_image || item.thumbnail || 'https://placehold.co/400x200';
+                const author = item.author || item.author_name || 'Media Club';
+                const contentType = item.content_type || item.category || 'News';
                 
                 html += `
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card content-card">
-                            <img src="${image}" class="card-img-top" alt="${item.title}">
+                            <img src="${image}" class="card-img-top" alt="${item.title}" loading="lazy">
                             <div class="card-body">
-                                <span class="badge bg-primary mb-2">${item.content_type}</span>
+                                <span class="badge bg-primary mb-2">${contentType}</span>
                                 <h5 class="card-title">${item.title}</h5>
                                 <p class="content-excerpt">${excerpt}</p>
                                 <div class="content-meta mb-3">
-                                    <i class="fas fa-user me-1"></i> ${item.author_name} | 
+                                    <i class="fas fa-user me-1"></i> ${author} | 
                                     <i class="fas fa-calendar me-1 ms-2"></i> ${date}
                                 </div>
-                                <a href="UpdateDetail.html?id=${item.id}" class="btn btn-primary btn-sm">
+                                <a href="UpdateDetail.html?slug=${item.slug || item.id}" class="btn btn-primary btn-sm">
                                     Read More <i class="fas fa-arrow-right ms-1"></i>
                                 </a>
                             </div>

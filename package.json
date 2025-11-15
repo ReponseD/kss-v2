@@ -1,0 +1,17 @@
+{
+  "name": "kss-website",
+  "version": "2.0.0",
+  "description": "Kagarama Secondary School Website with Git-based CMS",
+  "scripts": {
+    "build": "node scripts/build-content.js",
+    "dev": "node scripts/build-content.js",
+    "prebuild": "npm install"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+

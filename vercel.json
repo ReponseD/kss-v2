@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/admin",
@@ -33,6 +35,19 @@
         {
           "key": "Content-Type",
           "value": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/assets/data/content.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     }

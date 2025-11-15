@@ -1,0 +1,104 @@
+# Kagarama Secondary School - Improved CMS Configuration
+# This is an enhanced version with better organization and features
+
+backend:
+  name: github
+  repo: ReponseD/kss-v2
+  branch: main
+  auth_scope: repo
+  # Direct GitHub OAuth – no proxy or Netlify Identity required
+  base_url: https://www.kagaramasec.org
+  auth_endpoint: /admin/auth
+
+# Media settings
+media_folder: "assets/uploads"       # Where media files are stored in your repo
+public_folder: "/assets/uploads"     # Path used in the website
+
+# Optional branding
+logo_url: "https://www.kagaramasec.org/kss-logo-v4.png"
+site_url: "https://www.kagaramasec.org"
+
+# Localization
+locale: "en"
+
+# -------------------------------
+# Collections
+# -------------------------------
+collections:
+  # 📰 Posts / Articles Collection
+  - name: "posts"
+    label: "Posts / Articles"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "Draft"
+        field: "draft"
+        pattern: true
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+      - label: "Category"
+        field: "category"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Author", name: "author", widget: "string", default: "Media Club", required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", required: true}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false, hint: "Recommended: 1200x630px"}
+      - {label: "Body", name: "body", widget: "markdown", required: true, hint: "Use Markdown for formatting"}
+      - {label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Short summary (150 characters recommended)"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, hint: "Draft posts won't appear on the website"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Featured posts appear prominently"}
+      - {label: "Category", name: "category", widget: "select", options: ["News", "Blog", "Announcement"], default: "News", required: true}
+
+  # 🎥 Media / Videos Collection
+  - name: "media"
+    label: "Media / Videos"
+    folder: "content/media"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "markdown", required: false}
+      - {label: "Video URL", name: "video_url", widget: "string", required: true, hint: "Full YouTube or Vimeo URL (e.g., https://www.youtube.com/watch?v=...)"}
+      - {label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false, hint: "Custom thumbnail (optional, will use video thumbnail if not provided)"}
+      - {label: "Video Type", name: "video_type", widget: "select", options: ["YouTube", "Vimeo"], default: "YouTube", required: true}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", required: true}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+
+  # 📅 Announcements / Events Collection
+  - name: "events"
+    label: "Announcements / Events"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "Event Type"
+        field: "event_type"
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "markdown", required: true}
+      - {label: "Event Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", required: true}
+      - {label: "End Date", name: "end_date", widget: "datetime", required: false, format: "YYYY-MM-DD HH:mm", hint: "Optional: For multi-day events"}
+      - {label: "Location", name: "location", widget: "string", required: false, hint: "e.g., School Auditorium, Main Hall"}
+      - {label: "Image", name: "image", widget: "image", required: false, hint: "Event image or banner"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Event Type", name: "event_type", widget: "select", options: ["Announcement", "Event", "Meeting", "Workshop", "Sports", "Academic"], default: "Event", required: true}
+
+# -------------------------------
+# Editor Settings
+# -------------------------------
+editor:
+  preview: true  # Enable preview mode
+
+# -------------------------------
+# Workflow (Optional - for editorial workflow)
+# -------------------------------
+# publish_mode: editorial_workflow  # Uncomment to enable draft -> review -> ready -> publish workflow
+
