@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: kss-directus
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npx directus start
+    envVars:
+      - key: KEY
+        generateValue: true
+      - key: SECRET
+        generateValue: true
+      - key: DB_CLIENT
+        value: sqlite3
+      - key: DB_FILENAME
+        value: ./data/database.sqlite
+      - key: ADMIN_EMAIL
+        value: admin@kagaramasec.org
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PORT
+        value: 8055
+      - key: PUBLIC_URL
+        fromService:
+          type: web
+          name: kss-directus
+          property: host
+      - key: CORS_ENABLED
+        value: true
+      - key: CORS_ORIGIN
+        value: https://www.kagaramasec.org
+      - key: STORAGE_LOCATIONS
+        value: local
+      - key: STORAGE_LOCAL_ROOT
+        value: ./uploads

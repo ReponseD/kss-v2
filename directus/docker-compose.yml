@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ./data:/directus/database
+    environment:
+      KEY: ${KEY:-change-this-to-a-random-string}
+      SECRET: ${SECRET:-change-this-to-another-random-string}
+      DB_CLIENT: ${DB_CLIENT:-sqlite3}
+      DB_FILENAME: ${DB_FILENAME:-/directus/database/database.sqlite}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@kagaramasec.org}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-this-password}
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:8055}
+      CORS_ENABLED: ${CORS_ENABLED:-true}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+    restart: unless-stopped
+

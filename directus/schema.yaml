@@ -1,0 +1,594 @@
+# Directus Schema for KSS CMS
+# This defines all collections (tables) and their fields
+
+collections:
+  # News Collection
+  - collection: news
+    meta:
+      collection: news
+      icon: article
+      note: News articles and updates
+      display_template: "{{title}}"
+      hidden: false
+      singleton: false
+      translations:
+        - language: en-US
+          translation: News
+          singular: News Article
+          plural: News Articles
+    schema:
+      name: news
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          interface: input
+          readonly: true
+        schema:
+          is_primary_key: true
+          has_auto_increment: false
+      
+      - field: title
+        type: string
+        meta:
+          width: full
+          required: true
+          note: "Article title"
+        schema:
+          is_nullable: false
+      
+      - field: slug
+        type: string
+        meta:
+          width: half
+          required: true
+          note: "URL-friendly identifier (auto-generated from title)"
+        schema:
+          is_nullable: false
+          is_unique: true
+      
+      - field: author
+        type: string
+        meta:
+          width: half
+          default_value: "Media Club"
+          note: "Author name"
+        schema:
+          default_value: "Media Club"
+      
+      - field: content
+        type: text
+        meta:
+          width: full
+          required: true
+          interface: input-rich-text-html
+          note: "Article content (supports HTML)"
+        schema:
+          is_nullable: false
+      
+      - field: excerpt
+        type: text
+        meta:
+          width: full
+          note: "Short summary (150 characters recommended)"
+        schema:
+          is_nullable: true
+      
+      - field: featured_image
+        type: uuid
+        meta:
+          width: half
+          interface: file-image
+          note: "Featured image for the article"
+        schema:
+          is_nullable: true
+        relation:
+          many_collection: news
+          many_field: featured_image
+          one_collection: directus_files
+          one_field: null
+          one_collection_field: null
+          one_allowed_collections: null
+          junction_field: null
+      
+      - field: category
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: News
+                value: News
+              - text: Blog
+                value: Blog
+              - text: Announcement
+                value: Announcement
+          default_value: News
+        schema:
+          default_value: News
+      
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+          default_value: published
+        schema:
+          default_value: published
+      
+      - field: featured
+        type: boolean
+        meta:
+          width: half
+          default_value: false
+          note: "Featured articles appear prominently"
+        schema:
+          default_value: false
+      
+      - field: date_published
+        type: timestamp
+        meta:
+          width: half
+          required: true
+          interface: datetime
+          note: "Publication date"
+        schema:
+          is_nullable: false
+      
+      - field: date_created
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+      
+      - field: date_updated
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+          on_update: "CURRENT_TIMESTAMP"
+
+  # Blogs Collection (similar to News)
+  - collection: blogs
+    meta:
+      collection: blogs
+      icon: article
+      note: Blog posts
+      display_template: "{{title}}"
+      hidden: false
+      singleton: false
+      translations:
+        - language: en-US
+          translation: Blogs
+          singular: Blog Post
+          plural: Blog Posts
+    schema:
+      name: blogs
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          interface: input
+          readonly: true
+        schema:
+          is_primary_key: true
+          has_auto_increment: false
+      
+      - field: title
+        type: string
+        meta:
+          width: full
+          required: true
+        schema:
+          is_nullable: false
+      
+      - field: slug
+        type: string
+        meta:
+          width: half
+          required: true
+        schema:
+          is_nullable: false
+          is_unique: true
+      
+      - field: author
+        type: string
+        meta:
+          width: half
+          default_value: "Media Club"
+        schema:
+          default_value: "Media Club"
+      
+      - field: content
+        type: text
+        meta:
+          width: full
+          required: true
+          interface: input-rich-text-html
+        schema:
+          is_nullable: false
+      
+      - field: excerpt
+        type: text
+        meta:
+          width: full
+        schema:
+          is_nullable: true
+      
+      - field: featured_image
+        type: uuid
+        meta:
+          width: half
+          interface: file-image
+        schema:
+          is_nullable: true
+        relation:
+          many_collection: blogs
+          many_field: featured_image
+          one_collection: directus_files
+          one_field: null
+      
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+          default_value: published
+        schema:
+          default_value: published
+      
+      - field: featured
+        type: boolean
+        meta:
+          width: half
+          default_value: false
+        schema:
+          default_value: false
+      
+      - field: date_published
+        type: timestamp
+        meta:
+          width: half
+          required: true
+          interface: datetime
+        schema:
+          is_nullable: false
+      
+      - field: date_created
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+      
+      - field: date_updated
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+          on_update: "CURRENT_TIMESTAMP"
+
+  # Announcements Collection
+  - collection: announcements
+    meta:
+      collection: announcements
+      icon: campaign
+      note: School announcements and notices
+      display_template: "{{title}}"
+      hidden: false
+      singleton: false
+      translations:
+        - language: en-US
+          translation: Announcements
+          singular: Announcement
+          plural: Announcements
+    schema:
+      name: announcements
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          interface: input
+          readonly: true
+        schema:
+          is_primary_key: true
+          has_auto_increment: false
+      
+      - field: title
+        type: string
+        meta:
+          width: full
+          required: true
+        schema:
+          is_nullable: false
+      
+      - field: slug
+        type: string
+        meta:
+          width: half
+          required: true
+        schema:
+          is_nullable: false
+          is_unique: true
+      
+      - field: content
+        type: text
+        meta:
+          width: full
+          required: true
+          interface: input-rich-text-html
+        schema:
+          is_nullable: false
+      
+      - field: excerpt
+        type: text
+        meta:
+          width: full
+        schema:
+          is_nullable: true
+      
+      - field: image
+        type: uuid
+        meta:
+          width: half
+          interface: file-image
+        schema:
+          is_nullable: true
+        relation:
+          many_collection: announcements
+          many_field: image
+          one_collection: directus_files
+          one_field: null
+      
+      - field: event_type
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Announcement
+                value: Announcement
+              - text: Event
+                value: Event
+              - text: Meeting
+                value: Meeting
+              - text: Workshop
+                value: Workshop
+              - text: Sports
+                value: Sports
+              - text: Academic
+                value: Academic
+          default_value: Announcement
+        schema:
+          default_value: Announcement
+      
+      - field: event_date
+        type: timestamp
+        meta:
+          width: half
+          required: true
+          interface: datetime
+          note: "Event/announcement date"
+        schema:
+          is_nullable: false
+      
+      - field: end_date
+        type: timestamp
+        meta:
+          width: half
+          interface: datetime
+          note: "End date (for multi-day events)"
+        schema:
+          is_nullable: true
+      
+      - field: location
+        type: string
+        meta:
+          width: half
+          note: "Event location (e.g., School Auditorium)"
+        schema:
+          is_nullable: true
+      
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+          default_value: published
+        schema:
+          default_value: published
+      
+      - field: featured
+        type: boolean
+        meta:
+          width: half
+          default_value: false
+        schema:
+          default_value: false
+      
+      - field: date_created
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+      
+      - field: date_updated
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+          on_update: "CURRENT_TIMESTAMP"
+
+  # Media Collection
+  - collection: media
+    meta:
+      collection: media
+      icon: video_library
+      note: Video content and media
+      display_template: "{{title}}"
+      hidden: false
+      singleton: false
+      translations:
+        - language: en-US
+          translation: Media
+          singular: Media Item
+          plural: Media Items
+    schema:
+      name: media
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          interface: input
+          readonly: true
+        schema:
+          is_primary_key: true
+          has_auto_increment: false
+      
+      - field: title
+        type: string
+        meta:
+          width: full
+          required: true
+        schema:
+          is_nullable: false
+      
+      - field: slug
+        type: string
+        meta:
+          width: half
+          required: true
+        schema:
+          is_nullable: false
+          is_unique: true
+      
+      - field: description
+        type: text
+        meta:
+          width: full
+          interface: input-rich-text-html
+        schema:
+          is_nullable: true
+      
+      - field: video_url
+        type: string
+        meta:
+          width: full
+          required: true
+          note: "YouTube or Vimeo URL"
+        schema:
+          is_nullable: false
+      
+      - field: video_type
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: YouTube
+                value: YouTube
+              - text: Vimeo
+                value: Vimeo
+          default_value: YouTube
+        schema:
+          default_value: YouTube
+      
+      - field: thumbnail
+        type: uuid
+        meta:
+          width: half
+          interface: file-image
+          note: "Custom thumbnail (optional)"
+        schema:
+          is_nullable: true
+        relation:
+          many_collection: media
+          many_field: thumbnail
+          one_collection: directus_files
+          one_field: null
+      
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+          default_value: published
+        schema:
+          default_value: published
+      
+      - field: featured
+        type: boolean
+        meta:
+          width: half
+          default_value: false
+        schema:
+          default_value: false
+      
+      - field: date_published
+        type: timestamp
+        meta:
+          width: half
+          required: true
+          interface: datetime
+        schema:
+          is_nullable: false
+      
+      - field: date_created
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+      
+      - field: date_updated
+        type: timestamp
+        meta:
+          hidden: true
+          readonly: true
+        schema:
+          default_value: "CURRENT_TIMESTAMP"
+          on_update: "CURRENT_TIMESTAMP"
+

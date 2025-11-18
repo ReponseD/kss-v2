@@ -1,0 +1,18 @@
+{
+  "name": "kss-directus-backend",
+  "version": "1.0.0",
+  "description": "Directus backend for Kagarama Secondary School CMS",
+  "main": "index.js",
+  "scripts": {
+    "start": "directus start",
+    "bootstrap": "directus bootstrap",
+    "schema:apply": "directus schema apply ./snapshots/schema.yaml",
+    "schema:snapshot": "directus schema snapshot ./snapshots/schema.yaml"
+  },
+  "dependencies": {
+    "directus": "^10.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
