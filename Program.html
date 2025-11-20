@@ -593,6 +593,19 @@
     <script src="assets/js/main.js"></script>
 
     <style>
+/* Page-specific layout tweaks: equal-height cards and unified image sizes */
+.row.g-4 > [class*='col-'] { display: flex; }
+.row.g-4 > [class*='col-'] > .rounded { display:flex; flex-direction:column; width:100%; }
+.row.g-4 .position-relative img.img-fluid { width:100%; height:220px; object-fit:cover; display:block; }
+.row.g-4 .border { flex: 1 1 auto; display:flex; flex-direction:column; }
+.row.g-4 .border .btn { margin-top: auto; }
+
+/* Club cards and placeholders */
+.club-card { display:flex; flex-direction:column; background:#fff; }
+.club-img { width:100%; height:220px; overflow:hidden; background:#f3f4f6; }
+.club-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.club-body { padding:20px; display:flex; flex-direction:column; gap:8px; }
+
 #tidio-chat {
     bottom: 80px !important; 
     right: 20px !important; 
