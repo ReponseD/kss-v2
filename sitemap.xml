@@ -3,35 +3,70 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Updated sitemap with all pages -->
+  <!-- Homepage -->
   <url>
-   <loc>https://www.kagaramasec.org/</loc>
-   <lastmod>2025-08-19T00:00:00.000Z</lastmod>
-   <priority>1.00</priority>
- </url>
+    <loc>https://www.kagaramasec.org/</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <!-- About & School Information -->
   <url>
-   <loc>https://www.kagaramasec.org/About.html</loc>
-   <lastmod>2025-08-19T00:00:00.000Z</lastmod>
-   <priority>0.80</priority>
- </url>
+    <loc>https://www.kagaramasec.org/About.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
   <url>
-   <loc>https://www.kagaramasec.org/Activities.html</loc>
-   <lastmod>2025-08-19T00:00:00.000Z</lastmod>
-   <priority>0.80</priority>
- </url>
+    <loc>https://www.kagaramasec.org/Staff.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
   <url>
-   <loc>https://www.kagaramasec.org/Facilities.html</loc>
-   <lastmod>2025-08-19T00:00:00.000Z</lastmod>
-   <priority>0.80</priority>
- </url>
+    <loc>https://www.kagaramasec.org/Facilities.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Academic Programs -->
   <url>
-   <loc>https://www.kagaramasec.org/Gallery.html</loc>
-   <lastmod>2025-08-19T00:00:00.000Z</lastmod>
-   <priority>0.80</priority>
- </url>
+    <loc>https://www.kagaramasec.org/Program.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
   <url>
-   <loc>https://www.kagaramasec.org/Contact.html</loc>
-   <lastmod>2025-08-19T00:00:00.000Z</lastmod>
-   <priority>0.80</priority>
- </url>
+    <loc>https://www.kagaramasec.org/Admissions.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <!-- Student Life -->
+  <url>
+    <loc>https://www.kagaramasec.org/Activities.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.kagaramasec.org/Gallery.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <!-- News & Updates -->
+  <url>
+    <loc>https://www.kagaramasec.org/Updates.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Contact -->
+  <url>
+    <loc>https://www.kagaramasec.org/Contact.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>

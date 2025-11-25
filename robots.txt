@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 Disallow: /private/
+Disallow: /maintainance.html
 Sitemap: https://www.kagaramasec.org/sitemap.xml
+
